@@ -167,8 +167,8 @@ impl State {
 
     pub fn resize(&mut self, width: u32, height: u32) {
         if width > 0 && height > 0 {
-            // self.config.width = width;
-            // self.config.height = height;
+            self.config.width = width;
+            self.config.height = height;
             self.surface.configure(&self.device, &self.config);
             self.is_surface_configured = true;
             self.camera.set_viewport(width, height);

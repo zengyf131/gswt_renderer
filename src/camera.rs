@@ -124,6 +124,12 @@ impl Camera {
 
     pub fn set_viewport(&mut self, width: u32, height: u32) {
         self.viewport = PhysicalSize { width, height };
+        self.projection = cgmath::perspective(
+            self.fovy,
+            width as f32 / height as f32,
+            self.z_near,
+            self.z_far,
+        );
     }
 
     pub fn translate(&mut self, change: &Vec3) {
