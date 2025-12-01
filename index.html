@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GSWT</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+      }
+      canvas {
+        background-color: black;
+        width: 100%;
+        height: 100%;
+      }
+      canvas:focus {
+        outline: none;
+      }
+    </style>
+  </head>
+
+  <body id="wasm-example">
+    <canvas id="canvas"></canvas>
+    <script type="module">
+      import init from "./pkg/gswt.js";
+      init().then(() => {
+        console.log("WASM Loaded");
+      });
+    </script>
+  </body>
+</html>
