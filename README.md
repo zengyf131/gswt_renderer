@@ -10,9 +10,9 @@ The original renderer discussed in the paper is developed with WebGL. This rende
 
 ## Getting Started
 
-The renderer is available online: TBD. It requires a web browser that supports WebGPU (e.g., latest Chrome).
+The renderer is available online: [Demo](https://yunfan.zone/gswt_webpage/demo/). It requires a web browser that supports WebGPU (e.g., latest Chrome).
 
-A set of official datasets can be found here: TBD
+A set of official datasets can be found here: [Onedrive](https://hkustconnect-my.sharepoint.com/:f:/g/personal/yzengbm_connect_ust_hk/IgB6p7U3s0FARoryHllz2jVuATc39DOnvkGZ9ieHkX_-hNw?e=Whq3DT)
 
 To start the renderer:
 1. Find a dataset and upload the zip file containing the set of tiles. After a moment of preprocessing (usually a few seconds), the config menu should show up.
