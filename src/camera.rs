@@ -1,6 +1,4 @@
-use winit::{
-    dpi::PhysicalSize,
-};
+use winit::dpi::PhysicalSize;
 
 use crate::utils::*;
 

@@ -69,11 +69,7 @@ impl WangTile {
     }
 
     fn preprocess(&mut self) {
-        self.n_tiles = (
-            self.tile_splats_vec.len(),
-            self.tile_splats_vec[0].len(),
-            0,
-        );
+        self.n_tiles = (self.tile_splats_vec.len(), self.tile_splats_vec[0].len(), 0);
 
         // Compute aabb & avg center
         let mut aabb_vec: Vec<(Vec3, Vec3)> = Vec::with_capacity(self.n_tiles.1);
@@ -640,8 +636,7 @@ impl WangTile {
                             tile_lod_id.push(other_lod as u32);
                         }
                         tile_map_index.push(m_mi as u32);
-                        tile_merge_offset
-                            .push(self.splats_merge_offset[other_lod][m_tid.1]);
+                        tile_merge_offset.push(self.splats_merge_offset[other_lod][m_tid.1]);
                     }
                 }
                 let sort_result = Scene::sort_raw_depth_vec(tile_raw_depth);
@@ -1706,7 +1701,7 @@ impl WangTile {
                         {
                             let tile_instance = TileInstance {
                                 tid: (0, prev_tile_instance.tid.1), // lod_id initialize later
-                                view_id: 0, // initialize during sort
+                                view_id: 0,                         // initialize during sort
                                 tile_offset: prev_tile_instance.tile_offset,
                                 map_index: self.map_to_index(new_mc),
                                 map_coord: new_mc,
@@ -1824,7 +1819,7 @@ impl WangTile {
         )
     }
 
-    // World coordinate to map coordinate 
+    // World coordinate to map coordinate
     fn coord_to_map(&self, coord: Vector2<i32>) -> Vector2<usize> {
         Vector2::<usize>::new(
             (coord.x - self.center_coord.x + self.user_data.tile_map_half_wh.x as i32) as usize,

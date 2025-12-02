@@ -16,7 +16,7 @@ pub struct UserData {
     /// ID for this config
     pub config_id: u32,
     /// Half of width/height for tile map (in number of tiles)
-    /// 
+    ///
     /// Actual width/height computed based on surface type (2n or 2n+1)
     pub tile_map_half_wh: Vector2<usize>,
     /// Number of center options for each tile (less equal than that provided during upload)

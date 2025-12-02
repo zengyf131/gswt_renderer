@@ -280,7 +280,9 @@ impl Proxy {
         });
         group_entries.push(wgpu::BindGroupEntry {
             binding: 1,
-            resource: wgpu::BindingResource::Sampler(self.height_map.as_ref().unwrap().sampler.as_ref().unwrap()),
+            resource: wgpu::BindingResource::Sampler(
+                self.height_map.as_ref().unwrap().sampler.as_ref().unwrap(),
+            ),
         });
 
         // Proxy texture

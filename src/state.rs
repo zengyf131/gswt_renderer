@@ -210,13 +210,9 @@ impl State {
         }
     }
 
-    pub fn handle_mouse_input(&mut self, mouse_state: ElementState, button: MouseButton) {
+    pub fn handle_mouse_input(&mut self, mouse_state: ElementState, button: MouseButton) {}
 
-    }
-
-    pub fn handle_mouse_moved(&mut self, position: PhysicalPosition<f64>) {
-
-    }
+    pub fn handle_mouse_moved(&mut self, position: PhysicalPosition<f64>) {}
 
     pub fn handle_gui(&mut self, event: &WindowEvent) {
         self.gui.handle_input(self.window.clone(), event);
@@ -272,11 +268,8 @@ impl State {
                         );
                         if let Some(skybox_rawtex) = &self.render_data.skybox_rawtex {
                             self.render_data.use_skybox = true;
-                            self.skybox.configure(
-                                &self.device,
-                                &self.queue,
-                                skybox_rawtex,
-                            );
+                            self.skybox
+                                .configure(&self.device, &self.queue, skybox_rawtex);
                         }
                         if let Some(proxy_rawtex) = &self.render_data.proxy_rawtex {
                             self.render_data.use_proxy = true;

@@ -8,8 +8,8 @@ use std::{
 };
 //use wasm_thread as thread;
 
-use crate::utils::*;
 use crate::log;
+use crate::utils::*;
 
 const MAX_HEADER_LINES: usize = 65;
 const SH_C0: f32 = 0.28209479177387814;
@@ -1058,7 +1058,14 @@ pub async fn load_scene_zip() -> Vec<Vec<Scene>> {
     let mut file_vec: Vec<SceneFileEntry> = Vec::new();
     for i in 0..archive.len() {
         let file = archive.by_index(i).unwrap();
-        let filename = file.enclosed_name().unwrap().file_name().unwrap().to_str().unwrap().to_string();
+        let filename = file
+            .enclosed_name()
+            .unwrap()
+            .file_name()
+            .unwrap()
+            .to_str()
+            .unwrap()
+            .to_string();
         let opt_caps = re.captures(filename.as_str());
         if let Some(caps) = opt_caps {
             let strs = (caps.get(1).unwrap().as_str(), caps.get(2).unwrap().as_str());
@@ -1074,9 +1081,7 @@ pub async fn load_scene_zip() -> Vec<Vec<Scene>> {
         }
     }
 
-    file_vec.sort_by_key(|e| {
-        (e.lod_id, e.tile_id)
-    });
+    file_vec.sort_by_key(|e| (e.lod_id, e.tile_id));
     let first_entry = file_vec.first().unwrap();
     let last_entry = file_vec.last().unwrap();
 
@@ -1097,7 +1102,8 @@ pub async fn load_scene_zip() -> Vec<Vec<Scene>> {
                 let mut cursor = Cursor::new(Vec::<u8>::new());
                 let mut file = archive.by_index(file_entry.index).unwrap();
                 let mut bytes = vec![0_u8; file.size() as usize];
-                file.read_exact(&mut bytes.as_mut_slice()).expect(format!("Error loading file: {}", file_entry.filename).as_str());
+                file.read_exact(&mut bytes.as_mut_slice())
+                    .expect(format!("Error loading file: {}", file_entry.filename).as_str());
                 match Scene::parse_file_header(bytes) {
                     Ok((fhs, sc, c)) => {
                         file_header_size = fhs;
@@ -1114,7 +1120,8 @@ pub async fn load_scene_zip() -> Vec<Vec<Scene>> {
             } else if file_entry.filename.contains(".splat") {
                 let mut file = archive.by_index(file_entry.index).unwrap();
                 let mut bytes = vec![0_u8; file.size() as usize];
-                file.read(&mut bytes.as_mut_slice()).expect(format!("Error loading file: {}", file_entry.filename).as_str());
+                file.read(&mut bytes.as_mut_slice())
+                    .expect(format!("Error loading file: {}", file_entry.filename).as_str());
                 scene.splat_count = scene.buffer.len() / 32; // 32bytes per splat
             } else {
                 unreachable!();

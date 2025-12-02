@@ -468,8 +468,13 @@ impl GUI {
                                     let mut splat_count: usize = 0;
                                     let mut blending_splat_count: usize = 0;
                                     if rd.cur_scene_data.is_some() {
-                                        splat_count = rd.cur_scene_data.as_ref().unwrap().splat_count;
-                                        blending_splat_count = rd.cur_scene_data.as_ref().unwrap().blending_splat_count;
+                                        splat_count =
+                                            rd.cur_scene_data.as_ref().unwrap().splat_count;
+                                        blending_splat_count = rd
+                                            .cur_scene_data
+                                            .as_ref()
+                                            .unwrap()
+                                            .blending_splat_count;
                                     }
                                     ui.add(egui::Label::new("Splat Count (With Blending)"));
                                     ui.label(format!(
@@ -826,7 +831,8 @@ impl GUI {
                                 let mut blending_splat_count: usize = 0;
                                 if rd.cur_scene_data.is_some() {
                                     splat_count = rd.cur_scene_data.as_ref().unwrap().splat_count;
-                                    blending_splat_count = rd.cur_scene_data.as_ref().unwrap().blending_splat_count;
+                                    blending_splat_count =
+                                        rd.cur_scene_data.as_ref().unwrap().blending_splat_count;
                                 }
                                 ui.add(egui::Label::new("Splat Count (With Blending)"));
                                 ui.label(format!(
