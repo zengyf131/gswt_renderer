@@ -1,6 +1,6 @@
 # GSWT Renderer
 
-This is the official codebase for SIGGRAPH Asia 2025 paper: _GSWT: Gaussian Splatting Wang Tiles_ ([Project page](https://yunfan.zone/gswt_webpage/)). It only contains the GWST renderer. For the GSWT constructor part, please visit the other repository: TBD.
+This is the official codebase for SIGGRAPH Asia 2025 paper: _GSWT: Gaussian Splatting Wang Tiles_ ([Project page](https://yunfan.zone/gswt_webpage/)). It only contains the GSWT renderer. For the GSWT constructor part, please visit the other repository: TBD.
 
 ## Introduction
 
