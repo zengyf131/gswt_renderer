@@ -595,13 +595,13 @@ fn surface_mapping(pos: vec2<f32>, map_id: u32, new_pos: ptr<function, vec3<f32>
         // new_pos -= self.coord_to_pos(self.map_to_coord(vec2(0, 0)));
         (*new_pos).x -= f32(u_scene.center_coord.x - i32(u_scene.map_half_wh.x)) * u_scene.tile_width;
         (*new_pos).y -= f32(u_scene.center_coord.y - i32(u_scene.map_half_wh.y)) * u_scene.tile_width;
-        var block_id_x = f32(5.0 * f32(u_tile.map_coord.x) / (f32(u_scene.map_half_wh.x) * 2.0));
-        var block_id_y = f32(2.0 * f32(u_tile.map_coord.y) / (f32(u_scene.map_half_wh.y) * 2.0));
+        var block_id_x = f32(5 * u_tile.map_coord.x / (u_scene.map_half_wh.x * 2));
+        var block_id_y = f32(2 * u_tile.map_coord.y / (u_scene.map_half_wh.y * 2));
         if u_tile.single_draw == 1u {
             let map_height = 2u * u_scene.map_half_wh.y;
             let this_mc = vec2<u32>(map_id / map_height, map_id % map_height);
-            block_id_x = 5.0 * f32(this_mc.x) / f32((u_scene.map_half_wh.x * 2u));
-            block_id_y = 2.0 * f32(this_mc.y) / f32((u_scene.map_half_wh.y * 2u));
+            block_id_x = f32(5 * this_mc.x / (u_scene.map_half_wh.x * 2u));
+            block_id_y = f32(2 * this_mc.y / (u_scene.map_half_wh.y * 2u));
         }
         let block_x = (*new_pos).x - block_id_x * block_w;
         let block_y = (*new_pos).y - block_id_y * block_w;
